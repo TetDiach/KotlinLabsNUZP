@@ -1,27 +1,46 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.7.20"
-//    id("org.jetbrains.compose") version "1.2.1"
+    kotlin("jvm") version "1.8.0"
+    id("com.github.gmazzo.buildconfig") version "3.1.0"
     application
 }
 
-group = "com.diacht.ktest"
+subprojects {
+    apply(plugin = "com.github.gmazzo.buildconfig")
+}
+
+val labNumber = 1
+
+allprojects {
+    buildConfig {
+        buildConfigField("int", "LAB_NUMBER", "${labNumber}")
+    }
+}
+
+group = "org.example"
 version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    maven("file://${rootDir}/.m2repo/")
     google()
 }
 
 dependencies {
-      testImplementation(kotlin("test"))
+    if (labNumber > 1) {
+        implementation(project(":helloworld"))
+    }
+    implementation("com.diacht.ktest:library:1.0.1")
+    testImplementation(kotlin("test"))
 }
 
 sourceSets {
-    named("main") {
-        java.srcDir("./helloworld/src/main/kotlin/")
+    if (labNumber < 2) {
+        named("main") {
+            java.srcDir("./helloworld/src/main/kotlin/")
+        }
     }
 }
 
