@@ -17,12 +17,6 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>KTests</groupId>
-      <artifactId>common</artifactId>
-      <version>unspecified</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-scripting-jsr223</artifactId>
       <version>1.8.0</version>

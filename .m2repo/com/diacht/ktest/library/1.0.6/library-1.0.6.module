@@ -20,7 +20,7 @@
         "org.gradle.category": "library",
         "org.gradle.dependency.bundling": "external",
         "org.gradle.jvm.environment": "standard-jvm",
-        "org.gradle.jvm.version": 17,
+        "org.gradle.jvm.version": 11,
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-api",
         "org.jetbrains.kotlin.platform.type": "jvm"
@@ -38,11 +38,11 @@
         {
           "name": "library-1.0.6.jar",
           "url": "library-1.0.6.jar",
-          "size": 1434165,
-          "sha512": "0f5073d57703b6578b207dd5181066ab5c00498a55e4c47c6ea36737b8f8fb887b8a6811cdd96ebdafddd73689e914f8a33fceb9523464e69104b779ed10fa1f",
-          "sha256": "472a2c479777576a9a325b8c9868932f510a49dcc2cda74cacbeca40ed5d2b04",
-          "sha1": "1f18d63be10f0d6ab3f7d9b53f894521937a0da0",
-          "md5": "bbeac48a357c9742e615cefc8ef614bd"
+          "size": 1433812,
+          "sha512": "989c5dc8262dd050a3aa860ba5fad9491586bcebb5c2f8d7628af63b086c1ca5cbee44aff64b93f1863febc82d85f6d124719552a6be5462cebf8dc58c12b832",
+          "sha256": "f189b4f876a4e7bad67cdf38b16a89f399e55d5b12f2ab3c0fe00e81539593a7",
+          "sha1": "cc5b80291bd46dbbf0c3e755355bbf8c14670b1b",
+          "md5": "65c92e8c25358b13c20cd26d47f0898a"
         }
       ]
     },
@@ -52,19 +52,12 @@
         "org.gradle.category": "library",
         "org.gradle.dependency.bundling": "external",
         "org.gradle.jvm.environment": "standard-jvm",
-        "org.gradle.jvm.version": 17,
+        "org.gradle.jvm.version": 11,
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-runtime",
         "org.jetbrains.kotlin.platform.type": "jvm"
       },
       "dependencies": [
-        {
-          "group": "KTests",
-          "module": "common",
-          "version": {
-            "requires": "unspecified"
-          }
-        },
         {
           "group": "org.jetbrains.kotlin",
           "module": "kotlin-scripting-jsr223",
@@ -98,11 +91,11 @@
         {
           "name": "library-1.0.6.jar",
           "url": "library-1.0.6.jar",
-          "size": 1434165,
-          "sha512": "0f5073d57703b6578b207dd5181066ab5c00498a55e4c47c6ea36737b8f8fb887b8a6811cdd96ebdafddd73689e914f8a33fceb9523464e69104b779ed10fa1f",
-          "sha256": "472a2c479777576a9a325b8c9868932f510a49dcc2cda74cacbeca40ed5d2b04",
-          "sha1": "1f18d63be10f0d6ab3f7d9b53f894521937a0da0",
-          "md5": "bbeac48a357c9742e615cefc8ef614bd"
+          "size": 1433812,
+          "sha512": "989c5dc8262dd050a3aa860ba5fad9491586bcebb5c2f8d7628af63b086c1ca5cbee44aff64b93f1863febc82d85f6d124719552a6be5462cebf8dc58c12b832",
+          "sha256": "f189b4f876a4e7bad67cdf38b16a89f399e55d5b12f2ab3c0fe00e81539593a7",
+          "sha1": "cc5b80291bd46dbbf0c3e755355bbf8c14670b1b",
+          "md5": "65c92e8c25358b13c20cd26d47f0898a"
         }
       ]
     }
