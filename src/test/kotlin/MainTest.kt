@@ -1,6 +1,7 @@
 import com.diacht.ktest.TaskL2
 import com.diacht.ktest.TaskValidationResults
 import com.diacht.ktest.domain.usecases.GenerateL2TaskUseCase
+import com.diacht.ktest.domain.usecases.GenerateL3TaskUseCase
 import com.diacht.ktest.domain.usecases.ValidateL2DoubleTaskUseCase
 import com.diacht.ktest.domain.usecases.ValidateL2IntTaskUseCase
 import com.diacht.ktest.domain.usecases.ValidateL2StrTaskUseCase
@@ -27,20 +28,23 @@ internal class MainTest {
                 main(emptyArray())
                 assertEquals("Щось не так з третім кошеням", 5, buffer.lines().size)
                 val lastLine = buffer.lines()[3]
-                assertTrue(
-                    lastLine.contains("рудий", true) &&
-                            lastLine.contains("\uD83D\uDC06") &&
-                            lastLine.contains("кошеня №3", ignoreCase = true) &&
-                            lastLine.contains("віком 6 років", ignoreCase = true) &&
-                            lastLine.contains("вагою 8 ", ignoreCase = true),
-                    "Щось не так з третім кошеням"
-                )
+                assertTrue(lastLine.contains("рудий", true), "Нема імені третього кошення")
+                assertTrue(lastLine.contains("\uD83D\uDC06"), "Нема емоджі третього кошення")
+                assertTrue(lastLine.contains("кошеня №3", true), "Нема номера третього кошення")
+                assertTrue(lastLine.contains("віком 6 ", true), "Некоректний вік третього кошення")
+                assertTrue(lastLine.contains("вагою 8.2 ", true), "Некоректна вага третього кошення")
             }
             2 -> {
                 val generator = GenerateL2TaskUseCase()
                 val seed = seed()
                 val task = generator(seed)
                 testCalculate(task, ValidateL2IntTaskUseCase(), seed)
+            }
+            3 -> {
+                val generator = GenerateL3TaskUseCase()
+                val seed = seed()
+                val task = generator(seed)
+                L3Test(generator(seed), seed, getSimulationObject()).test1()
             }
             else -> assertTrue(false, "Некоректний номер лаболаторної роботи")
         }
@@ -57,6 +61,12 @@ internal class MainTest {
                 val task = generator(seed)
                 testCalculate(task, ValidateL2DoubleTaskUseCase(), seed)
             }
+            3 -> {
+                val generator = GenerateL3TaskUseCase()
+                val seed = seed()
+                val task = generator(seed)
+                L3Test(generator(seed), seed, getSimulationObject()).test2()
+            }
             else -> assertTrue(false, "Некоректний номер лаболаторної роботи")
         }
     }
@@ -72,6 +82,7 @@ internal class MainTest {
                 val task = generator(seed)
                 testCalculate(task, ValidateL2StrTaskUseCase(), seed)
             }
+            3 -> {}
             else -> assertTrue(false, "Некоректний номер лаболаторної роботи")
         }
     }

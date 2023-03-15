@@ -7,4 +7,9 @@ pluginManagement {
     }
 }
 
+listOf("caffe", "common", "juicefactory").forEach {
+    include(it)
+    project(":$it").projectDir=file("./modules/$it/")
+}
+
 include("helloworld")

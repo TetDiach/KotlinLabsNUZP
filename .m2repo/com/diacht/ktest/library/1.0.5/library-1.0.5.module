@@ -1,0 +1,124 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.diacht.ktest",
+    "module": "library",
+    "version": "1.0.5",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.4.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.8.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "library-1.0.5.jar",
+          "url": "library-1.0.5.jar",
+          "size": 1434165,
+          "sha512": "976549b14b916d0fb778cba4bc62284fcd3e73b7d953c1ba35db61e44faadcb96458bb8d3ac494a3285a807d038ab73887ccec06ab46dfa4af8df80530c69ad0",
+          "sha256": "953978e4e1f44a5e76d0eb5844c6944be64dd87766d62ab5853b5ee075836ef0",
+          "sha1": "4349fa7a8de048bfe4bc0de28aa500135c17b442",
+          "md5": "b6dc77234ab603d6212d8a12803c8bdb"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "KTests",
+          "module": "common",
+          "version": {
+            "requires": "unspecified"
+          }
+        },
+        {
+          "group": "KTests",
+          "module": "juicefactory",
+          "version": {
+            "requires": "unspecified"
+          }
+        },
+        {
+          "group": "KTests",
+          "module": "caffe",
+          "version": {
+            "requires": "unspecified"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-scripting-jsr223",
+          "version": {
+            "requires": "1.8.0"
+          }
+        },
+        {
+          "group": "org.scilab.forge",
+          "module": "jlatexmath",
+          "version": {
+            "requires": "1.0.7"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.desktop",
+          "module": "desktop-jvm-linux-x64",
+          "version": {
+            "requires": "1.3.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.8.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "library-1.0.5.jar",
+          "url": "library-1.0.5.jar",
+          "size": 1434165,
+          "sha512": "976549b14b916d0fb778cba4bc62284fcd3e73b7d953c1ba35db61e44faadcb96458bb8d3ac494a3285a807d038ab73887ccec06ab46dfa4af8df80530c69ad0",
+          "sha256": "953978e4e1f44a5e76d0eb5844c6944be64dd87766d62ab5853b5ee075836ef0",
+          "sha1": "4349fa7a8de048bfe4bc0de28aa500135c17b442",
+          "md5": "b6dc77234ab603d6212d8a12803c8bdb"
+        }
+      ]
+    }
+  ]
+}

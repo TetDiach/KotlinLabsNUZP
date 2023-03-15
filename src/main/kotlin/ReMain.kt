@@ -1,4 +1,3 @@
-
 var globalOutBuffer : StringBuilder? = null
 
 fun interceptPrintln(sb: StringBuilder) {
