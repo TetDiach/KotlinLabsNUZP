@@ -15,8 +15,9 @@ repositories {
 }
 
 dependencies {
-    implementation("com.diacht.ktest:library:1.0.1")
+    implementation("com.diacht.ktest:library:1.0.6")
     implementation(compose.desktop.currentOs)
+    implementation(project(":juicefactory"))
     testImplementation(kotlin("test"))
 }
 

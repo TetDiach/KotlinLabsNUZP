@@ -1,7 +1,7 @@
 import com.diacht.ktest.compose.startTestUi
 import me.tetiana.helloworld.BuildConfig
 
-fun seed(): String = "user3выв3"
+fun seed(): String = "DiachT"
 
 
 fun labNumber() : Int = BuildConfig.LAB_NUMBER
