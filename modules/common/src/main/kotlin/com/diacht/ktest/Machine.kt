@@ -8,9 +8,9 @@ open class Machine(private val storage: Storage) {
     private var currentReciept : Receipt? = null
 
     /**
-     * Отримати продукти від постачальника, та зберігти їх в сховищі.
+     * Метод для отримання залишків продуктів.
      */
-    fun loadProducts(productsFromSupplier: List<Product>) = storage.getLeftovers()
+    fun getLeftovers() = storage.getLeftovers()
 
     /**
      * Встановити "рецепт" який буде використано для створення вихідного продукту.

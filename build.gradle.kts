@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.8.0"
-    id("org.jetbrains.compose") version "1.3.0"
     id("com.github.gmazzo.buildconfig") version "3.1.0"
     application
 }
@@ -34,6 +33,7 @@ dependencies {
     if (labNumber > 1) {
         implementation(project(":helloworld"))
     }
+//    implementation(project(":library"))
     implementation(project(":caffe"))
     implementation(project(":juicefactory"))
     implementation("com.diacht.ktest:library:1.0.6")
@@ -46,6 +46,21 @@ sourceSets {
             java.srcDir("./helloworld/src/main/kotlin/")
         }
     }
+
+    sourceSets {
+        create("labTests") {
+            kotlin.srcDir(when (labNumber) {
+                1 -> "src/lab1/"
+                2 -> "src/lab2/"
+                3 -> "src/lab3/"
+                4 -> "src/lab4/"
+                else -> throw IllegalStateException("Wrong Lab number $labNumber")
+            })
+            compileClasspath += sourceSets["main"].output + configurations["testRuntimeClasspath"]
+            runtimeClasspath += output + compileClasspath + sourceSets["test"].runtimeClasspath
+        }
+    }
+
 }
 
 tasks.test {
@@ -70,4 +85,7 @@ tasks.withType<Test> {
         events.add(org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED)
         events.add(org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED)
     }
+
+    testClassesDirs += sourceSets["labTests"].output.classesDirs
+    classpath += sourceSets["labTests"].runtimeClasspath
 }
