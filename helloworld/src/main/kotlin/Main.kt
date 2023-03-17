@@ -33,6 +33,10 @@ fun strCalculate(x0: String, x1: String) : Int {
     return result
 }
 
+fun getSimulationObject():FactoryJuice{
+    return FactoryJuice()
+}
+
 fun main(args: Array<String>) {
     println("Лабораторна робота №${labNumber()} користувача ${seed()}")
 

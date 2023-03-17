@@ -3,6 +3,7 @@ import com.diacht.ktest.ProductType
 import com.diacht.ktest.Storage
 
 class StorageJuiceFactory : Storage {
+//    val juicePress = JuicePress(this)
     val storage = mutableListOf<Product>()
 
     override fun addProduct(product: Product) {
