@@ -1,4 +1,3 @@
-import cafee.Cafe
 import com.diacht.ktest.*
 import com.diacht.ktest.caffe.AMERICANO
 import com.diacht.ktest.caffe.AMERICANO_WI_MILK
@@ -286,7 +285,7 @@ internal class L3Test {
         }
     }
 
-    fun testJuiceFabric2(simulationObject: Cafe, task: TaskL3) {
+    fun testJuiceFabric2(simulationObject: FactoryItf, task: TaskL3) {
         simulationObject.resetSimulation()
         assertTrue(simulationObject.getLeftovers().isEmpty(), "Склад має бути порожнім після сбросу симуляції.")
         simulationObject.loadProducts(juiceProducts(2))

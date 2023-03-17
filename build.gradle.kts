@@ -33,7 +33,6 @@ dependencies {
     if (labNumber > 1) {
         implementation(project(":helloworld"))
     }
-//    implementation(project(":library"))
     implementation(project(":caffe"))
     implementation(project(":juicefactory"))
     implementation("com.diacht.ktest:library:1.0.6")
