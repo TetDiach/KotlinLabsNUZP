@@ -7,13 +7,15 @@ interface Storage {
     fun addProduct(product: Product)
 
     /**
-     * Отримати скільки вкзаного продукту містится в сховищі. Якщо такого продукту немає, то метод має повернути 0.0.
+     * Отримати скільки вкзаного продукту містится в сховищі. Якщо такого продукту немає,
+     * то метод має повернути 0.0.
      */
     fun checkProductCount(type: ProductType) : Int
 
     /**
      * Забрати вказаний продукт зі сховища.
-     * @throws IllegalStateException Якщо продукту не вистачає або зовсім немає, то метод може послати IllegalStateException("Продукту $type не вистачає")
+     * @throws IllegalStateException Якщо продукту не вистачає або зовсім немає, то метод може
+     * послати IllegalStateException("Продукту $type не вистачає")
      */
     fun getProduct(productType: ProductType, count: Int) : Product
 

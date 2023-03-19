@@ -12,30 +12,30 @@ class StorageJuiceFactory : Storage {
 
     override fun checkProductCount(type: ProductType): Int {
         var res = 0
-        storage.forEach {
-            if (it.type == type) res += it.count
-        }
+        storage
+            .filter { it.type == type }
+            .forEach { res += it.count }
         return res
     }
 
     override fun getProduct(productType: ProductType, count: Int): Product {
         var res = -count
         var errorRes = 0
-        var productNew: Product
-        storage.forEach {
-            if (it.type == productType) {
+
+        storage.removeAll(storage
+            .filter { it.type == productType }
+            .onEach {
                 errorRes += it.count
-                res = it.count + res
-                storage.remove(it)
+                res += it.count
             }
-        }
+        )
         if(res<0)  {
             storage.add(Product(productType, errorRes))
             throw IllegalStateException()
+        } else {
+            storage.add(Product(productType, res))
+            return Product(productType, count)
         }
-        productNew = Product(productType, res)
-        storage.add(productNew)
-        return productNew
     }
 
     override fun getLeftovers(): List<Product> = storage

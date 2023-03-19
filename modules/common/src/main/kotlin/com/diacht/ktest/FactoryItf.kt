@@ -41,7 +41,7 @@ abstract class FactoryItf {
      * Найпопулярніший напій. Повертає: Product(Тип продукту, кількість), якщо такого продукту не має,
      * то треба повернути  Product(NONE, 0), якщо таких продуктів декілька, то повертає будь-який
      */
-    fun getPopularDrink() : Product = Product(NONE, 0)
+    open fun getPopularDrink() : Product = Product(NONE, 0)
 
     /**
      * Непопулярний напій. Повертає: Product(Тип продукту, кількість), якщо такого продукту не має,

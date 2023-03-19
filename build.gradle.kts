@@ -2,6 +2,7 @@ import org.gradle.api.tasks.testing.logging.TestLogging
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
+    id("java")
     kotlin("jvm") version "1.8.0"
     id("com.github.gmazzo.buildconfig") version "3.1.0"
     application
@@ -10,6 +11,9 @@ plugins {
 subprojects {
     apply(plugin = "com.github.gmazzo.buildconfig")
 }
+
+
+
 
 val labNumber = 3
 
@@ -33,6 +37,7 @@ dependencies {
     if (labNumber > 1) {
         implementation(project(":helloworld"))
     }
+//    implementation(project(":library"))
     implementation(project(":caffe"))
     implementation(project(":juicefactory"))
     implementation("com.diacht.ktest:library:1.0.6")
@@ -88,3 +93,13 @@ tasks.withType<Test> {
     testClassesDirs += sourceSets["labTests"].output.classesDirs
     classpath += sourceSets["labTests"].runtimeClasspath
 }
+
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of("17"))
+    }
+}
+
+val compileTestKotlin: KotlinCompile by tasks
+
+compileTestKotlin.kotlinOptions.jvmTarget = "17"
