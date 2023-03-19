@@ -2,8 +2,8 @@ package com.diacht.ktest
 
 abstract class FactoryItf {
     /**
-     * Метод для cкидання стану симуляції, всі внутрішні стани, лічильники, списки продуктів і т.і. мають
-     * бути зкинуті в реалзіції цього методу.
+     * Метод для скидання стану симуляції, всі внутрішні стани, лічильники, списки продуктів і т.і. мають
+     * бути скинуті в реалізації цього методу.
      */
     abstract fun resetSimulation()
 
@@ -28,14 +28,14 @@ abstract class FactoryItf {
     fun getGift() : List<Product> = emptyList()
 
     /**
-     * Скількі грошей в кассі.
+     * Скільки грошей в касі.
      */
     open fun getEarnings() : Int = 0
 
     /**
-     * Статистика замовленнь. Повертає: Список Product(Тип продукту, кількість)
+     * Статистика замовлень. Повертає: Список Product(Тип продукту, кількість)
      */
-    fun getOrderStatistics() : List<Product> = emptyList()
+    open fun getOrderStatistics() : List<Product> = emptyList()
 
     /**
      * Найпопулярніший напій. Повертає: Product(Тип продукту, кількість), якщо такого продукту не має,
@@ -47,11 +47,11 @@ abstract class FactoryItf {
      * Непопулярний напій. Повертає: Product(Тип продукту, кількість), якщо такого продукту не має,
      * то треба повернути  Product(NONE, 0), якщо таких продуктів декілька, то повертає будь-який
      */
-    fun getUnpopularDrink() : Product = Product(NONE, 0)
+    open fun getUnpopularDrink() : Product = Product(NONE, 0)
 
     /**
      * Найприбутковий напій. Повертає: Pair(Тип продукту, кількість_грошей), якщо такого продукту не має,
      * то треба повернути  Product(NONE, 0), якщо таких продуктів декілька, то повертає будь-який
      */
-    fun getMostEarnings() : Pair<ProductType, Int> = Pair(NONE, 0)
+    open fun getMostEarnings() : Pair<ProductType, Int> = Pair(NONE, 0)
 }

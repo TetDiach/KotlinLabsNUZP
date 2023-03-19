@@ -12,9 +12,6 @@ subprojects {
     apply(plugin = "com.github.gmazzo.buildconfig")
 }
 
-
-
-
 val labNumber = 3
 
 allprojects {
@@ -37,7 +34,6 @@ dependencies {
     if (labNumber > 1) {
         implementation(project(":helloworld"))
     }
-//    implementation(project(":library"))
     implementation(project(":caffe"))
     implementation(project(":juicefactory"))
     implementation("com.diacht.ktest:library:1.0.6")
@@ -51,20 +47,23 @@ sourceSets {
         }
     }
 
-    sourceSets {
-        create("labTests") {
-            kotlin.srcDir(when (labNumber) {
-                1 -> "src/lab1/"
-                2 -> "src/lab2/"
-                3 -> "src/lab3/"
-                4 -> "src/lab4/"
-                else -> throw IllegalStateException("Wrong Lab number $labNumber")
-            })
-            compileClasspath += sourceSets["main"].output + configurations["testRuntimeClasspath"]
-            runtimeClasspath += output + compileClasspath + sourceSets["test"].runtimeClasspath
+    test {
+        kotlin {
+            srcDir(
+                when (labNumber) {
+                    1 -> "src/lab1/"
+                    2 -> "src/lab2/"
+                    3 -> "src/lab3/"
+                    4 -> "src/lab4/"
+                    5 -> "src/lab5/"
+                    else -> throw IllegalStateException("Wrong Lab number $labNumber")
+                }
+            )
         }
-    }
+        compileClasspath += sourceSets["main"].output + configurations["testRuntimeClasspath"]
+        runtimeClasspath += output + compileClasspath + sourceSets["test"].runtimeClasspath
 
+    }
 }
 
 tasks.test {
@@ -89,17 +88,5 @@ tasks.withType<Test> {
         events.add(org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED)
         events.add(org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED)
     }
-
-    testClassesDirs += sourceSets["labTests"].output.classesDirs
-    classpath += sourceSets["labTests"].runtimeClasspath
 }
 
-kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of("17"))
-    }
-}
-
-val compileTestKotlin: KotlinCompile by tasks
-
-compileTestKotlin.kotlinOptions.jvmTarget = "17"
