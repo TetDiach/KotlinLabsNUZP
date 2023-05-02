@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.8.0"
+    kotlin("jvm") version Versions.kotlin
 }
 
 repositories {
@@ -13,4 +13,8 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+kotlin {
+    jvmToolchain(Versions.jvmLevel)
 }
